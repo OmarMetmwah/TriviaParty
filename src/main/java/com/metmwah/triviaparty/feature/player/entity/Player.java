@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 @Getter
 @Setter
-@Table(name = "Player")
 public class Player extends BasicUser implements UserDetails {
 
     public Player(String email, String password) {

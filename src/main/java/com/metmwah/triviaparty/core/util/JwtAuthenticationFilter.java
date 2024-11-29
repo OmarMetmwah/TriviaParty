@@ -35,7 +35,7 @@ public class JwtAuthenticationFilter  extends OncePerRequestFilter {
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
         // Skip Authentication for login
-        if (request.getRequestURI().contains("/login")) {
+        if (request.getRequestURI().contains("/login") || request.getRequestURI().contains("/register")) {
             filterChain.doFilter(request, response);
             return;
         }
