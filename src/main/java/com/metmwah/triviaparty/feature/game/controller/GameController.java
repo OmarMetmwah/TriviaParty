@@ -14,8 +14,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 @RequestMapping(Endpoints.GAME_ENDPOINT)
 @RequiredArgsConstructor
 public class GameController {
@@ -33,14 +36,20 @@ public class GameController {
     public ResponseEntity joinRoom(@PathVariable Integer gameCode, Authentication authentication) {
         if (gameService.check(gameCode)) {
             if (scoreService.check(playerService.get(authentication.getName()), gameCode)) {
-                return ResponseEntity.status(HttpStatus.CONFLICT).body("You have already joined this game");
+                Map<String, String> responseBody = new HashMap<>();
+                responseBody.put("errorMessage","You have already joined this game");
+
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(responseBody);
             } else {
                 scoreService.create(playerService.get(authentication.getName()), gameCode);
                 return ResponseEntity.status(HttpStatus.CREATED).body(null);
             }
 
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no Existing game with code: " + gameCode);
+            Map<String, String> responseBody = new HashMap<>();
+            responseBody.put("errorMessage","There is no Existing game with code: " + gameCode);
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseBody);
         }
     }
 

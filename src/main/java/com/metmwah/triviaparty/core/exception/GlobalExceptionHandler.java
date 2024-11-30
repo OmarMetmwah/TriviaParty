@@ -16,6 +16,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handleException(UserAlreadyExistsException exception) {
         return  errorResponse(HttpStatus.CONFLICT,exception);
     }
+    @ExceptionHandler({AlreadyJoinedException.class})
+    public ResponseEntity<Object> handleException(AlreadyJoinedException exception) {
+        return  errorResponse(HttpStatus.CONFLICT,exception);
+    }
     @ExceptionHandler({NotFoundException.class})
     public ResponseEntity<Object> handleException(NotFoundException exception) {
         return  errorResponse(HttpStatus.NOT_FOUND,exception);

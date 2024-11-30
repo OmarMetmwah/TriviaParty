@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h2>Login</h2>
+        <form action="" onsubmit="login(event)">
+            <div class="input-field">
+                <input type="text" name="email" id="email" placeholder="Enter Your Email">
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" placeholder="Enter Your Password">
+                <div class="underline"></div>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+
+
+        <div class="footer">
+            <span>Or Register</span>
+            <form action="">
+                <input type="submit" value="Signup">
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -37,9 +37,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("**/login").permitAll()
                         .requestMatchers("**/register").permitAll()
-//                        .requestMatchers("/ws").permitAll()
                         .anyRequest()
-                        .authenticated()
+                        .permitAll()
+//                        .authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -51,11 +51,10 @@ public class SecurityConfig {
     }
 
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
+    public WebSecurityCustomizer webSecurityCustomizer() {;
         return (web) -> web
                 .ignoring()
-                .anyRequest();
-//                .requestMatchers("**/website/**");
+                .requestMatchers("/ws","/gameroom");
 
     }
 }

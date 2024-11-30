@@ -30,7 +30,7 @@ public class WebSocketConfig
         // the CORS policy for the handlers so that other
         // domains can also access the socket
         webSocketHandlerRegistry
-                .addHandler(new SocketConnectionHandler(),"/game")
+                .addHandler(new SocketConnectionHandler(),"/gameroom")
                 .setAllowedOrigins("*");
     }
 }

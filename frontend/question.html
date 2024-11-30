@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .leaderboard {
+            background-color: #ffeb3b;
+            color: #333;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .game-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .choices button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .choices button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Trivia Game</h1>
+
+        <button onclick="exit()"
+            style="background-color: #ff5722; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Exit</button>
+    </header>
+
+    <div class="leaderboard">
+        <h3>Leaderboard</h3>
+        <p>1. Player 1: 10 Points</p>
+        <p>2. Player 2: 8 Points</p>
+        <p>3. Player 3: 5 Points</p>
+    </div>
+
+    <div class="container">
+        <div class="game-box">
+            <div class="question">
+                <p>What is the capital of France?</p>
+            </div>
+            <div class="choices">
+                <button onclick="checkAnswer('Paris')">Paris</button>
+                <button onclick="checkAnswer('London')">London</button>
+                <button onclick="checkAnswer('Berlin')">Berlin</button>
+                <button onclick="checkAnswer('Madrid')">Madrid</button>
+            </div>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
