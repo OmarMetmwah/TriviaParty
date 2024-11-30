@@ -37,6 +37,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("**/login").permitAll()
                         .requestMatchers("**/register").permitAll()
+//                        .requestMatchers("/ws").permitAll()
                         .anyRequest()
                         .authenticated()
                 )
@@ -53,7 +54,8 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web
                 .ignoring()
-                .requestMatchers("**/website/**");
+                .anyRequest();
+//                .requestMatchers("**/website/**");
 
     }
 }

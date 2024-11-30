@@ -16,6 +16,7 @@ public interface PlayerService {
 
     List<UserResponseDTO> get();
     UserResponseDTO get(Integer id);
-    
-    boolean checkUserExists(String email);
+    Integer get(String email);
+
+
 }

@@ -81,8 +81,8 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public boolean checkUserExists(String email) {
-        return playerRepository.findByEmail(email).isPresent();
+    public Integer get(String email) {
+        return playerRepository.findByEmail(email).get().getId();
     }
 
 
