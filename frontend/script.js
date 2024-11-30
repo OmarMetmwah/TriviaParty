@@ -110,3 +110,7 @@ function exit() {
     localStorage.removeItem('gameId');
     window.location.href = 'mainmenue.html';
 }
+function goToSignup(event) {
+    event.preventDefault();
+    window.location.href = 'register.html';
+}
